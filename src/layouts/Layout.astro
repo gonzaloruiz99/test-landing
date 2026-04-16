@@ -12,6 +12,8 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+import ScrollReveal from "../components/ScrollReveal.astro";
 ---
 
 <!doctype html>
@@ -48,6 +50,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:description" content={description} />
   </head>
   <body>
+    <ScrollReveal />
     <slot />
   </body>
 </html>
