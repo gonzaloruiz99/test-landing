@@ -1,0 +1,52 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p class="footer__marca">Studio<span>.</span></p>
+    <p class="footer__copy">© {year} Studio. Todos los derechos reservados.</p>
+    <div class="footer__links">
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-lg) 0;
+  }
+  .footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .footer__marca {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+  }
+  .footer__marca span {
+    color: var(--color-accent);
+  }
+  .footer__copy {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .footer__links {
+    display: flex;
+    gap: var(--space-md);
+  }
+  .footer__links a {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+    transition: color var(--transition);
+  }
+  .footer__links a:hover {
+    color: white;
+  }
+</style>

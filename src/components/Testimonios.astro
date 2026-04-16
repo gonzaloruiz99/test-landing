@@ -1,0 +1,102 @@
+---
+const testimonios = [
+  {
+    nombre: "María García",
+    empresa: "Estudio Legal García",
+    texto:
+      "El sitio quedó exactamente como lo imaginaba. En dos semanas teníamos todo online y los clientes empezaron a contactarnos por la web desde el primer día.",
+    iniciales: "MG",
+  },
+  {
+    nombre: "Carlos Mendez",
+    empresa: "Café Origen",
+    texto:
+      "Proceso muy ordenado y claro. Sabían lo que necesitábamos antes de que nosotros lo pudiéramos explicar bien. El resultado superó las expectativas.",
+    iniciales: "CM",
+  },
+  {
+    nombre: "Ana Torres",
+    empresa: "Clínica Torres",
+    texto:
+      "Muy profesionales. El sitio carga muy rápido, se ve bien en el celular y aparecer en Google mejoró notablemente desde el primer mes.",
+    iniciales: "AT",
+  },
+];
+---
+
+<section id="testimonios" class="section testimonios-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Testimonios</span>
+      <h2 class="section-titulo">Lo que dicen nuestros clientes</h2>
+    </div>
+    <div class="testimonios-grid">
+      {
+        testimonios.map((t) => (
+          <div class="testimonio-card">
+            <p class="testimonio-texto">"{t.texto}"</p>
+            <div class="testimonio-autor">
+              <div class="testimonio-avatar">{t.iniciales}</div>
+              <div>
+                <p class="testimonio-nombre">{t.nombre}</p>
+                <p class="testimonio-empresa">{t.empresa}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonios-section {
+    background: var(--color-bg-soft);
+  }
+  .testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+  .testimonio-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .testimonio-texto {
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .testimonio-autor {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  .testimonio-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    flex-shrink: 0;
+  }
+  .testimonio-nombre {
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+  }
+  .testimonio-empresa {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+  }
+</style>

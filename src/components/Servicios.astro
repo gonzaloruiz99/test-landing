@@ -1,0 +1,111 @@
+---
+const servicios = [
+  {
+    icono: "◈",
+    titulo: "Diseño UX/UI",
+    descripcion:
+      "Interfaces que convierten. Diseñamos experiencias centradas en el usuario con foco en resultados.",
+  },
+  {
+    icono: "◉",
+    titulo: "Desarrollo web",
+    descripcion:
+      "Sitios rápidos, seguros y escalables. Stack moderno con performance y SEO desde el día uno.",
+  },
+  {
+    icono: "◎",
+    titulo: "SEO & Contenido",
+    descripcion:
+      "Posicionamiento orgánico real. Estrategia de keywords, estructura técnica y contenido optimizado.",
+  },
+  {
+    icono: "◐",
+    titulo: "Branding",
+    descripcion:
+      "Identidad visual coherente. Desde el logo hasta el sistema de diseño completo de tu marca.",
+  },
+];
+---
+
+<section id="servicios" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Servicios</span>
+      <h2 class="section-titulo">Lo que hacemos</h2>
+      <p class="section-bajada">
+        Cubrimos todo el proceso, desde la estrategia hasta el lanzamiento.
+      </p>
+    </div>
+    <div class="servicios-grid">
+      {
+        servicios.map((s) => (
+          <div class="servicio-card">
+            <span class="servicio-icono">{s.icono}</span>
+            <h3 class="servicio-titulo">{s.titulo}</h3>
+            <p class="servicio-desc">{s.descripcion}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+  .section-tag {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    color: var(--color-accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-xs);
+  }
+  .section-titulo {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+  .section-bajada {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+  }
+  .servicio-card {
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    transition:
+      box-shadow var(--transition),
+      transform var(--transition);
+  }
+  .servicio-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+  }
+  .servicio-icono {
+    display: block;
+    font-size: 2rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+  }
+  .servicio-titulo {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+  .servicio-desc {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+  }
+</style>

@@ -1,0 +1,79 @@
+---
+const links = [
+  { label: "Servicios", href: "#servicios" },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Testimonios", href: "#testimonios" },
+  { label: "Contacto", href: "#contacto" },
+];
+---
+
+<header class="navbar">
+  <div class="container navbar__inner">
+    <a href="/" class="navbar__logo">Studio<span>.</span></a>
+    <nav class="navbar__nav">
+      {
+        links.map((link) => (
+          <a href={link.href} class="navbar__link">
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+    <a href="#contacto" class="btn btn--primary">Hablemos</a>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: var(--space-md);
+  }
+  .navbar__logo {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  .navbar__logo span {
+    color: var(--color-accent);
+  }
+  .navbar__nav {
+    display: flex;
+    gap: var(--space-md);
+  }
+  .navbar__link {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    transition: color var(--transition);
+  }
+  .navbar__link:hover {
+    color: var(--color-accent);
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition);
+    border: none;
+  }
+  .btn--primary {
+    background: var(--color-accent);
+    color: white;
+  }
+  .btn--primary:hover {
+    background: var(--color-accent-hover);
+  }
+</style>

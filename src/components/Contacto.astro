@@ -1,0 +1,120 @@
+<section id="contacto" class="section">
+  <div class="container contacto-inner">
+    <div class="contacto-texto">
+      <span class="section-tag">Contacto</span>
+      <h2 class="section-titulo">Hablemos de tu proyecto</h2>
+      <p class="section-bajada" style="margin: 0; text-align: left;">
+        Contanos qué necesitás y te respondemos en menos de 24 horas.
+      </p>
+    </div>
+    <form
+      name="contacto"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="contacto-form"
+    >
+      <input type="hidden" name="form-name" value="contacto" />
+      <p class="hidden">
+        <label>No completar: <input name="bot-field" /></label>
+      </p>
+
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Tu nombre"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="tu@email.com"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="servicio">¿Qué necesitás?</label>
+        <select id="servicio" name="servicio">
+          <option value="">Seleccioná una opción</option>
+          <option value="web">Sitio web</option>
+          <option value="landing">Landing page</option>
+          <option value="seo">SEO</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="4"
+          placeholder="Contanos tu proyecto..."></textarea>
+      </div>
+      <button type="submit" class="btn btn--primary btn--lg btn--full"
+        >Enviar mensaje</button
+      >
+    </form>
+  </div>
+</section>
+
+<style>
+  .contacto-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+  .hidden {
+    display: none;
+  }
+  .contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  label {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  input,
+  select,
+  textarea {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-base);
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background: white;
+    transition: border-color var(--transition);
+    width: 100%;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+  .btn--full {
+    width: 100%;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .contacto-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
