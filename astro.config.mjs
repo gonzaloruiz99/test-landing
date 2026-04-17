@@ -9,8 +9,8 @@ export default defineConfig({
     sitemap(),
     react(),
     sanity({
-      projectId: 'uvq1h6px',
-      dataset: 'production',
+      projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
+      dataset: import.meta.env.PUBLIC_SANITY_DATASET,
       useCdn: false,
       studioBasePath: '/admin',
     }),
