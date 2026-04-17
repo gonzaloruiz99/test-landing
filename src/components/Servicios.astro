@@ -1,35 +1,16 @@
 ---
-const servicios = [
-  {
-    icono: "◈",
-    titulo: "Diseño UX/UI",
-    descripcion:
-      "Interfaces que convierten. Diseñamos experiencias centradas en el usuario con foco en resultados.",
-  },
-  {
-    icono: "◉",
-    titulo: "Desarrollo web",
-    descripcion:
-      "Sitios rápidos, seguros y escalables. Stack moderno con performance y SEO desde el día uno.",
-  },
-  {
-    icono: "◎",
-    titulo: "SEO & Contenido",
-    descripcion:
-      "Posicionamiento orgánico real. Estrategia de keywords, estructura técnica y contenido optimizado.",
-  },
-  {
-    icono: "◐",
-    titulo: "Branding",
-    descripcion:
-      "Identidad visual coherente. Desde el logo hasta el sistema de diseño completo de tu marca.",
-  },
-];
+import { client, urlFor } from "../sanity/client";
+
+const servicios = await client.fetch(`
+  *[_type == "servicio" && activo == true] | order(orden asc) {
+    titulo, descripcion, icono, imagen
+  }
+`);
 ---
 
 <section id="servicios" class="section">
   <div class="container">
-    <div class="section-header reveal">
+    <div class="section-header">
       <span class="section-tag">Servicios</span>
       <h2 class="section-titulo">Lo que hacemos</h2>
       <p class="section-bajada">
@@ -38,9 +19,13 @@ const servicios = [
     </div>
     <div class="servicios-grid">
       {
-        servicios.map((s) => (
+        servicios.map((s: any) => (
           <div class="servicio-card">
-            <span class="servicio-icono">{s.icono}</span>
+            {s.imagen ? (
+              <img src={urlFor(s.imagen)} alt={s.titulo} class="servicio-img" />
+            ) : (
+              <span class="servicio-icono">{s.icono}</span>
+            )}
             <h3 class="servicio-titulo">{s.titulo}</h3>
             <p class="servicio-desc">{s.descripcion}</p>
           </div>
@@ -92,6 +77,13 @@ const servicios = [
   .servicio-card:hover {
     box-shadow: var(--shadow-md);
     transform: translateY(-4px);
+  }
+  .servicio-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-sm);
   }
   .servicio-icono {
     display: block;
